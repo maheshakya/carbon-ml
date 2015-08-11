@@ -130,8 +130,8 @@
                             <div id="parameter-inputs"></div>
                             
                             <div class="btn-group-actions">
+                                <button id="feature-predict" class="btn btn-main" type="submit">Predict</button>
                                 <button id="file-predict" class="btn btn-main" type="submit">Predict</button>
-                                <button id="feature-predict" class="btn btn-main" type="submit">Predict</button>                                
                             </div>
 
                         </form>
@@ -241,7 +241,7 @@
 		$(document).on('click', '#file-predict', function(e){
 		    var actionUrl = serverUrl + '/api/models/predictionStreams';
 		    $('#prediction-form').attr('action', actionUrl);
-		});        
+		});
 
     });
 
@@ -309,13 +309,13 @@
             }
         });
 
-        bindEvents();            
+        bindEvents();
     }
 
     function bindEvents() {
         // make predictions for feature input prediction
         $(document).on('click', '#feature-predict', function(e){
-            e.preventDefault();            
+            e.preventDefault();
 
             var emptyFeatureValues = false;
             var inputArray = [];
@@ -340,7 +340,7 @@
                         var predictionNotification =    '<div class="wr-instant-response">' +
                                                             '<label>Predicted Value:</label><br>' +
                                                             '<label><span>' + res + '</span></label>' +
-                                                        '</div>';                        
+                                                        '</div>';
                         $("#prediction").html(predictionNotification);
                     },
                     error : function(res){
@@ -364,8 +364,8 @@
         $('#prediction-src').on('change', function(e){
             displayPredictionSource();
             $("#prediction").empty();
-        });        
-    }        
+        });
+    }
 
     // function to change input fields
     function displayPredictionSource() {
